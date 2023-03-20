@@ -39,6 +39,11 @@ import './Search.css'
     }
   };
 
+  const handleClick = () => {
+    setFilterItem('');
+    setClassName('overlay')
+  }
+
   return (
     <>
     <div className="search-container">
@@ -50,7 +55,7 @@ import './Search.css'
           aria-label="Search"
           onChange={(e) => handleSearch(e, data)}
         />
-        <Button onClick={() => navigate("/show")} variant="outline-success">
+        <Button variant="outline-success">
           Search
         </Button>
         <div className="drop d-flex">
@@ -83,7 +88,7 @@ import './Search.css'
             </div>
           ))}
       </div>
-      <div className={className}></div>
+      <div className={className} onClick={handleClick}></div>
       </Form>
     </div>
  
