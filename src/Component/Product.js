@@ -23,7 +23,6 @@ function Product() {
       setLoading(false);
     };
     getProduct();
-    console.log(1)
   }, []);
 
   const Loading = () => {

@@ -9,7 +9,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {Search} from "./Search";
+import Search from "./Search";
 
 function Header({data, setData}) {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ function Header({data, setData}) {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-sm">
-                Offcanvas
+                Menu
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>

@@ -1,15 +1,16 @@
 import './App.css';
 import Home from './Component/Home';
 import Products from './Component/Products';
-import {Routes, Route, Router} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import Product from './Component/Product';
 import Cart from './Component/Cart';
 import Header from './Component/header';
 import Login from './Component/Login';
 import Register from './Component/Register';
-import {Search, ShowResult} from './Component/Search';
+import Search from './Component/Search';
 
 function App() {
+
   return (
     <>
     <Header />
@@ -20,8 +21,7 @@ function App() {
         <Route exact path="/products/:id" element={<Product />}/>
         <Route exact path="/login" element={<Login />}/>
         <Route exact path="/register" element={<Register />}/>
-        <Route exact path="/search" element={<Search />}/>
-        {/* <Route exact path="/show" element={<ShowResult />}/> */}
+        <Route exact path="/search" element={<Search/>}/>
       </Routes>      
     </>
   );

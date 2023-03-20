@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import './Search.css'
 
-export function Search() {
+ function Search() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [filterItem, setFilterItem] = useState(data);
@@ -22,8 +22,6 @@ export function Search() {
     };
     getProducts();
   }, []);
-  console.log(data);
-  console.log(filterItem);
 
   const handleSearch = (e, data) => {
     let filter = data.filter((item) =>
@@ -51,7 +49,8 @@ export function Search() {
         <Button onClick={() => navigate("/show")} variant="outline-success">
           Search
         </Button>
-        <div className="drop d-flex">
+      </Form>
+      <div className="drop d-flex">
         {filterItem &&
           filterItem.map((product) => (
             <div className="display-5" style={{ width: 280 }} key={product.id}>
@@ -81,9 +80,9 @@ export function Search() {
             </div>
           ))}
       </div>
-      </Form>
     </div>
     </>
   );
 }
 
+export default Search;
