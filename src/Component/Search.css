@@ -3,7 +3,6 @@
     width: 280px;
     display: flex;
     flex-direction: column;
-    position: relative;
   }
   
   .drop {
@@ -13,6 +12,10 @@
     border: 1px solid gray;
     position: absolute;
     margin-top: 55px;
+    max-height: 580px;
+    min-height: 440px;
+    overflow: hidden;
+    padding: 10px 0 0 0;
   }
 
 

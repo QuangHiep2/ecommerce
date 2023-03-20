@@ -51,8 +51,7 @@ export function Search() {
         <Button onClick={() => navigate("/show")} variant="outline-success">
           Search
         </Button>
-      </Form>
-      <div className="drop d-flex">
+        <div className="drop d-flex">
         {filterItem &&
           filterItem.map((product) => (
             <div className="display-5" style={{ width: 280 }} key={product.id}>
@@ -82,45 +81,9 @@ export function Search() {
             </div>
           ))}
       </div>
+      </Form>
     </div>
     </>
   );
 }
 
-// export const ShowResult = ({ filterItem }) => {
-//   console.log(filterItem);
-//   return (
-//     <>
-//       <div className="drop d-flex">
-//         {filterItem &&
-//           filterItem.map((product) => (
-//             <div className="display-5" style={{ width: 280 }} key={product.id}>
-//               <NavLink
-//                 to={`/products/${product.id}`}
-//                 className="text-dark text-decoration-none"
-//               >
-//                 <div className="row mt-2 p-2">
-//                   <div className="col-4 text-center">
-//                     <img
-//                       src={product.image}
-//                       alt={product.title}
-//                       height="100px"
-//                       width="100px"
-//                     />
-//                   </div>
-//                   <div className="col ms-4">
-//                     <h1 className="h6">{product.title.substring(0, 12)}</h1>
-//                     <p className="lead h6">
-//                       Rating {product.rating && product.rating.rate}
-//                       <i className="fa fa-star"></i>
-//                     </p>
-//                     <h3 className="h5 fw-bold my-4">${product.price}</h3>
-//                   </div>
-//                 </div>
-//               </NavLink>
-//             </div>
-//           ))}
-//       </div>
-//     </>
-//   );
-// };
