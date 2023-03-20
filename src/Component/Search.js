@@ -9,6 +9,8 @@ import './Search.css'
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [filterItem, setFilterItem] = useState(data);
+  const [className, setClassName] = useState('overlay')
+  console.log(className)
   useEffect(() => {
     let componentMounted = true;
     const getProducts = async () => {
@@ -29,9 +31,11 @@ import './Search.css'
     );
     if(e.target.value === ''){
       setFilterItem('')
+      setClassName('overlay')
     }
     else {
       setFilterItem(filter);
+      setClassName('overlay active')
     }
   };
 
@@ -49,8 +53,7 @@ import './Search.css'
         <Button onClick={() => navigate("/show")} variant="outline-success">
           Search
         </Button>
-      </Form>
-      <div className="drop d-flex">
+        <div className="drop d-flex">
         {filterItem &&
           filterItem.map((product) => (
             <div className="display-5" style={{ width: 280 }} key={product.id}>
@@ -80,7 +83,10 @@ import './Search.css'
             </div>
           ))}
       </div>
+      <div className={className}></div>
+      </Form>
     </div>
+ 
     </>
   );
 }
