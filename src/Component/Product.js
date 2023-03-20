@@ -23,6 +23,7 @@ function Product() {
       setLoading(false);
     };
     getProduct();
+    console.log(1)
   }, []);
 
   const Loading = () => {
@@ -49,7 +50,7 @@ function Product() {
   const ShowProduct = () => {
     return (
       <>
-        <div className="container ">
+        <div className="container " key={product.id}>
           <div className="row py-4">
             <div className="col text-center">
               <img

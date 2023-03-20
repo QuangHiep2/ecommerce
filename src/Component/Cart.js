@@ -24,7 +24,7 @@ function Cart() {
   };
 
   return (
-    <>
+    <div className="mt-5 p-4">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -83,7 +83,7 @@ function Cart() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

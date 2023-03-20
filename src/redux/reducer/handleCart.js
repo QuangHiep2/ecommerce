@@ -31,6 +31,7 @@ function handleCart(state = cart, action) {
           x.id === product.id ? { ...x, qty: x.qty - 1 } : x
         );
       }
+
     case "REMOVEITEM":
       const exist2 = state.find((x) => x.id === product.id);
         return state.filter((x) => x.id !== exist2.id);

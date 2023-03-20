@@ -16,8 +16,6 @@ function Products() {
         setData(await products.clone().json());
         setFilter(await products.json());
         setLoading(false);
-        console.log(filter);
-        console.log(data);
       }
       return () => {
         componentMounted = false;
@@ -50,7 +48,7 @@ function Products() {
     setFilter(updatedList);
   }
 
-  const ShowProduct = () => {
+  const ShowProduct1 = () => {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 ">
@@ -82,8 +80,8 @@ function Products() {
         {filter.map((product) => {
           return (
             <>
-              <div className="col-md-3 h-100 p-4 text-center ">
-                <div className="card " key={product.id}>
+              <div className="col-md-3 mb-4" key={product.id}>
+                <div className="card h-100 p-4 text-center" >
                   <img
                     src={product.image}
                     className="card-img-top"
@@ -113,12 +111,12 @@ function Products() {
       <div className="container my-5 py-5">
         <div className="row">
           <div className="col-12 mb-5">
-            <h1 className="display-6 fw-bolder text-center">Lastest Product</h1>
+            <h1 className="display-6 fw-bolder text-center">Product</h1>
             <hr />
           </div>
         </div>
         <div className="row justify-content-center">
-          {loading ? <Loading /> : <ShowProduct />}
+          {loading ? <Loading /> : <ShowProduct1 />}
         </div>
       </div>
     </div>

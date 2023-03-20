@@ -1,0 +1,26 @@
+
+  .search-container {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .drop {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    position: absolute;
+    margin-top: 55px;
+  }
+
+
+  
+  
+  
+  
+  
+ 
+ 
+  

@@ -1,25 +1,30 @@
 import {React} from "react";
 import image from "../assets/gg.jpg";
 
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import {Search} from "./Search";
 
-function Header() {
+function Header({data, setData}) {
+  const navigate = useNavigate();
   const state = useSelector((state) => state.handleCart);
   const totalQtn = state.reduce((sum, item) => {
     return sum + item.qty;
   }, 0);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/login')
+  }
   return (
     <div>
-      <Navbar key="xxl" bg="light" expand="md" className="mb-3">
+      <Navbar key="xxl" bg="light" expand="md" className="mb-3" fixed="top">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             <img src={image} />
@@ -36,25 +41,13 @@ function Header() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-            <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button 
-                  variant="outline-success">Search</Button>
-              </Form>
+              <Search data={data} setData={setData}/>
 
               <Nav className="justify-content-end flex-grow-1 pe-3 text-center">
-                <NavDropdown title="Danh mục" id="basic-nav-dropdown">
-                  <Nav.Link>
+              <NavDropdown title="Danh mục" id="basic-nav-dropdown" className="btn">
                     <NavDropdown.Item as={Link} to="/" className="text-center">
                       Home
                     </NavDropdown.Item>
-                  </Nav.Link>
-                  <Nav.Link>
                     <NavDropdown.Item
                       as={Link}
                       to="/products"
@@ -62,8 +55,6 @@ function Header() {
                     >
                       Product
                     </NavDropdown.Item>
-                  </Nav.Link>
-                  <Nav.Link>
                     <NavDropdown.Item
                       as={Link}
                       to="/about"
@@ -71,8 +62,6 @@ function Header() {
                     >
                       About
                     </NavDropdown.Item>
-                  </Nav.Link>
-                  <Nav.Link>
                     <NavDropdown.Item
                       as={Link}
                       to="/contact"
@@ -80,29 +69,24 @@ function Header() {
                     >
                       Contact
                     </NavDropdown.Item>
-                  </Nav.Link>
                 </NavDropdown>
                 <Nav.Link
                   as={Link}
                   to="/login"
-                  className="btn btn-outline-dark ms-2"
+                  className="btn btn-outline-secondary ms-2"
                 >
                   <i className="fa fa-sign-in me-1"></i> Login
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/register"
-                  className="btn btn-outline-dark ms-2"
-                >
-                  <i className="fa fa-user-plus me-1"></i> Register
-                </Nav.Link>
-                <Nav.Link
-                  as={Link}
                   to="/cart"
-                  className="btn btn-outline-dark ms-2"
+                  className="btn btn-outline-secondary ms-2"
                 >
                   <i className="fa fa-shopping-cart me-1"></i> Cart ({totalQtn})
                 </Nav.Link>
+                
+                <button className="btn btn-outline-secondary ms-2 fa fa-sign-out" onClick={handleLogout}>LogOut</button>
+                
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

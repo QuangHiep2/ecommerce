@@ -14,10 +14,7 @@ function Home() {
         />
         <div className="card-img-overlay  d-flex flex-column justify-content-center">
           <div className="container" style={{ color:" rgb(41, 46, 56)" }}>
-            <h5 className="card-title display-3">NEW SEASON ARRIVALS</h5>
-            <p className="card-text lead fs-2">
-                CHECK OUT ALL THE TRENDS
-            </p>
+            <h5 className="card-title display-3 text-center">FAKE STORE</h5>
           </div>
         </div>
       </div>
